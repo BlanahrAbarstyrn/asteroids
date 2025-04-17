@@ -24,6 +24,12 @@ def main():
     fps = pygame.time.Clock()
     dt = 0
 
+    # Declaring groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
     # Instantiating Player object
     x = SCREEN_WIDTH /2
     y = SCREEN_HEIGHT / 2
@@ -41,10 +47,11 @@ def main():
         color = (0, 0, 0)
         # Fill the screen with color
         screen.fill(color)
-        # Render player on screen each frame
-        player.draw(screen)
-        # Update player rotation
-        player.update(dt)
+        # Render each member in group drawable on screen each frame
+        for member in drawable:
+            member.draw(screen)
+        # Update rotation for members of updatable group
+        updatable.update(dt)
         # Update the display
         pygame.display.flip()
         # Setting Frames Per Second
