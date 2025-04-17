@@ -3,10 +3,9 @@
 # throughout this file
 import pygame
 
-# import everything from the module
-# constants.py into the current file
+# import everything from modules
+# constants.py and player.py into the current file
 from constants import *
-
 from player import *
 
 def main():
@@ -44,12 +43,14 @@ def main():
         screen.fill(color)
         # Render player on screen each frame
         player.draw(screen)
+        # Update player rotation
+        player.update(dt)
         # Update the display
         pygame.display.flip()
         # Setting Frames Per Second
         fps.tick(60)
-        # Run time from start of game
-        dt = (pygame.time.get_ticks()) / 1000
+        # elapsed time between frames
+        dt = (fps.get_time()) / 1000
         # Test that dt returned a value
         #print(dt)
 
