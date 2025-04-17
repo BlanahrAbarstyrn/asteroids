@@ -8,10 +8,15 @@ import pygame
 from constants import *
 
 def main():
-    #print("Starting Asteroids!")
-    #print("Screen width:", SCREEN_WIDTH)
-    #print("Screen height:", SCREEN_HEIGHT)
+    # Initial environment testing
+    print("Starting Asteroids!")
+    print("Screen width:", SCREEN_WIDTH)
+    print("Screen height:", SCREEN_HEIGHT)
+
+    # Initialize Pygame
     pygame.init()
+
+    # Set the screen dimensions
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
@@ -19,8 +24,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-        screen.fill(0,0,0)
+        # Define the screen color
+        color = (0, 0, 0)
+        # Fill the screen with color
+        screen.fill(color)
+        # Update the display
         pygame.display.flip()
+
+
 
 if __name__ == "__main__":
     main()
