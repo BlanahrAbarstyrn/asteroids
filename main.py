@@ -7,6 +7,8 @@ import pygame
 # constants.py into the current file
 from constants import *
 
+from player import *
+
 def main():
     # Initial environment testing
     print("Starting Asteroids!")
@@ -23,6 +25,11 @@ def main():
     fps = pygame.time.Clock()
     dt = 0
 
+    # Instantiating Player object
+    x = SCREEN_WIDTH /2
+    y = SCREEN_HEIGHT / 2
+    player = Player(x, y)
+
 
     # -------GAME LOOP-------
 
@@ -35,6 +42,8 @@ def main():
         color = (0, 0, 0)
         # Fill the screen with color
         screen.fill(color)
+        # Render player on screen each frame
+        player.draw(screen)
         # Update the display
         pygame.display.flip()
         # Setting Frames Per Second
