@@ -34,9 +34,19 @@ class Player(CircleShape):
     # in the player class - Overrides update method of CircleShape
     def update(self, dt):
         keys = pygame.key.get_pressed()
+        negative_dt = dt * -1.0
 
         if keys[pygame.K_a] or keys[pygame.K_LEFT]:
             self.rotate(dt)
         if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
-            negative_dt = dt * -1.0
             self.rotate(negative_dt)
+        if keys[pygame.K_w] or keys[pygame.K_UP]:
+            self.move(dt)
+        if keys[pygame.K_s] or keys[pygame.K_DOWN]:
+            self.move(negative_dt)
+
+    # in player class
+    def move(self, dt):
+        # these two lines of code provided by Boot
+        forward = pygame.Vector2(0, 1).rotate(self.rotation)
+        self.position += forward * PLAYER_SPEED * dt
