@@ -19,8 +19,15 @@ def main():
     # Set the screen dimensions
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    # Initializing for frames per second
+    fps = pygame.time.Clock()
+    dt = 0
+
+
+    # -------GAME LOOP-------
 
     while True:
+        # Turn on ability to close game window
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -30,8 +37,14 @@ def main():
         screen.fill(color)
         # Update the display
         pygame.display.flip()
+        # Setting Frames Per Second
+        fps.tick(60)
+        # Run time from start of game
+        dt = (pygame.time.get_ticks()) / 1000
+        # Test that dt returned a value
+        #print(dt)
 
-
+    # -------END GAME LOOP-------
 
 if __name__ == "__main__":
     main()
