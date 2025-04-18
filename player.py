@@ -37,13 +37,13 @@ class Player(CircleShape):
         negative_dt = dt * -1.0
 
         if keys[pygame.K_a] or keys[pygame.K_LEFT]:
-            self.rotate(dt)
+            self.rotate(dt) # rotate left
         if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
-            self.rotate(negative_dt)
+            self.rotate(negative_dt) # rotate right
         if keys[pygame.K_w] or keys[pygame.K_UP]:
-            self.move(dt)
+            self.move(dt) # move forward
         if keys[pygame.K_s] or keys[pygame.K_DOWN]:
-            self.move(negative_dt)
+            self.move(negative_dt) # move backward
 
     # in player class
     def move(self, dt):
