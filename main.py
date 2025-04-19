@@ -5,13 +5,14 @@ import pygame
 
 
 # import everything from modules circleshape,
-# constants.py, player.py, asteroid.py
+# constants.py, player.py, asteroid.py, shot.py
 # and asteroidfield.py into the current file
 from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
 from circleshape import *
+from shot import *
 
 def main():
     # Initial environment testing
@@ -37,6 +38,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containers = (updatable, drawable)
 
     # Instantiating Player object
     x = SCREEN_WIDTH /2
@@ -45,6 +47,9 @@ def main():
 
     # Instantiating AsteroidField object
     asteroid_field = AsteroidField()
+
+    # Instantiating Shot object
+
 
     # Initiating Game Loop Status
     run = True

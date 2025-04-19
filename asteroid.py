@@ -10,7 +10,7 @@ class Asteroid(CircleShape):
     
     # in the Asteroid class - overrides draw method of CircleShape
     def draw(self, screen):
-        asteroid_color = (255,255,255) # white
+        asteroid_color = (255,165,0) # orange
         # with unneeded declarations removed from def __init__, self.position
         # now works in pygame.draw circle without needing to do headstands
         pygame.draw.circle(screen, asteroid_color, self.position, self.radius, width=2)
