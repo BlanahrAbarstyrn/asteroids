@@ -78,6 +78,9 @@ def main():
             fps.tick(60)
             # elapsed time between frames
             dt = (fps.get_time()) / 1000
+            for member in updatable:
+                if member == player:
+                    Player.shot_timer -= dt
             # Test that dt returned a value
             #print(dt)
             # listen for collisions

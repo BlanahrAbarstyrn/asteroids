@@ -12,6 +12,7 @@ class Player(CircleShape):
         super().__init__(x, y, PLAYER_RADIUS)
         self.radius = PLAYER_RADIUS
         self.rotation = 0
+        Player.shot_timer = 0
     
     # in the player class -- triangle function provided by Boot
     def triangle(self):
@@ -45,8 +46,9 @@ class Player(CircleShape):
             self.move(dt) # move forward
         if keys[pygame.K_s] or keys[pygame.K_DOWN]:
             self.move(negative_dt) # move backward
-        if keys[pygame.K_SPACE]:
+        if keys[pygame.K_SPACE] and self.shot_timer <= 0:
             self.shoot() # shoot bullets
+            Player.shot_timer = PLAYER_SHOOT_COOLDOWN
 
     # in player class
     def move(self, dt):
