@@ -12,7 +12,7 @@ class Shot(CircleShape):
     # in the Shot class - overrides draw method of CircleShape
     def draw(self, screen):
         shot_color = (255,255,0) # yellow
-        pygame.draw.circle(screen, shot_color, self.position, self.radius, width=5)
+        pygame.draw.circle(screen, shot_color, self.position, self.radius, width=2)
     
     
     # in shot class - overrides update method in CircleShape
