@@ -1,6 +1,9 @@
 # import everything from module
 # circleshape.py into the current file
 from circleshape import *
+from constants import ASTEROID_MIN_RADIUS
+
+import random
 
 # An Asteroid class that inherits from CircleShape
 class Asteroid(CircleShape):
@@ -19,3 +22,13 @@ class Asteroid(CircleShape):
     # in Asteroid class - overrides update method in CircleShape
     def update(self, dt):
         self.position += (self.velocity * dt)
+
+    
+    # in Asteroid class - method to split asteroids into smaller
+    # pieces when hit by bullets
+    def split(self):
+        self.kill()
+        if self.radius <= ASTEROID_MIN_RADIUS:
+            return
+        else:
+            pass

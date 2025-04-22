@@ -79,6 +79,7 @@ def main():
             fps.tick(60)
             # elapsed time between frames
             dt = (fps.get_time()) / 1000
+            # cooldown timer between shots
             for member in updatable:
                 if member == player:
                     Player.shot_timer -= dt
@@ -90,7 +91,7 @@ def main():
                     raise Exception("Game Over")
                 for shot in shots:
                     if shot.is_colliding(asteroid) == True:
-                        asteroid.kill()
+                        asteroid.split()
                         shot.kill()
         except Exception as e:
             print(e)
