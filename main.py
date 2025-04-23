@@ -2,6 +2,7 @@
 # the open-source pygame library
 # throughout this file
 import pygame
+import random
 
 
 # import everything from modules circleshape,
@@ -25,6 +26,12 @@ def main():
 
     # Set the screen dimensions
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    # Set Window Title
+    pygame.display.set_caption('Asteroids')
+
+    # importing star image
+    star_surf = pygame.image.load('/home/sittingturtle/workspace/github.com/BlanahrAbarstyrn/asteroids/images/star.png').convert_alpha()
+    star_positions = [(random.randint(0,SCREEN_WIDTH),random.randint(0,SCREEN_HEIGHT)) for i in range(40)]
 
     # Initializing for frames per second
     fps = pygame.time.Clock()
@@ -73,6 +80,9 @@ def main():
                 member.draw(screen)
             # Update rotation for members of updatable group
             updatable.update(dt)
+            # background stars
+            for pos in star_positions:
+                screen.blit(star_surf, pos)
             # Update the display
             pygame.display.flip()
             # Setting Frames Per Second
